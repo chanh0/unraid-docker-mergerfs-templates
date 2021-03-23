@@ -1,1 +1,47 @@
 #
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>mergerfs-static-build</Name>
+  <Repository>trapexit/mergerfs-static-build</Repository>
+  <Registry>https://hub.docker.com/repository/docker/trapexit/mergerfs-static-build</Registry>
+  <Network>host</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Project>https://github.com/trapexit/mergerfs</Project>
+  <Overview>Simple container to build a static binary of mergerfs in Alpine.</Overview>
+  <Category>Downloaders: Tools:</Category>
+  <WebUI>http://ariang.js.org/</WebUI>
+  <Icon>https://dominicm.com/wp-content/uploads/2015/11/arch-linux.png</Icon>
+  <Description>Simple container to build a static binary of mergerfs in Alpine. .</Description>
+  <Networking>
+    <Mode>host</Mode>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/mergerfs-tmp</HostDir>
+      <ContainerDir>/build</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>1000</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>GMT</Value>
+      <Name>TZ</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="User UID" Target="PUID" Default="1000" Mode="" Description="Bind UID to the container, which means you can use a non-root user to manage downloaded files.&#13;&#10;" Type="Variable" Display="always-hide" Required="true" Mask="false">1000</Config>
+  <Config Name="User GID" Target="PGID" Default="100" Mode="" Description="Bind GID to the container, which means you can use a non-root user to manage downloaded files.&#13;&#10;" Type="Variable" Display="always-hide" Required="true" Mask="false">100</Config>
+  <Config Name="Time Zone" Target="TZ" Default="GMT" Mode="" Description="Specify a timezone to use e.g. Asia/Shanghai" Type="Variable" Display="advanced-hide" Required="false" Mask="false">Asia/Shanghai</Config>
+</Container>
